@@ -1,0 +1,23 @@
+#! /bin/bash
+
+VOLUP=""
+VOLHIGH="墳"
+VOLMEDIUM="奔"
+VOLOFF=""
+VOLMUTE="ﱝ"
+VOLUME=$(pamixer --get-volume)
+MUTE=$(pamixer --get-mute)
+
+if [ $MUTE == "true" ];then
+    echo -e "$VOLMUTE mute"
+else
+    if ([[ $VOLUME -gt 75 ]] || [[$VOLUME -eq 75]]); then
+        echo -e "$VOLUP $VOLUME%"
+    elif ([[ $VOLUME -gt 50 ]] || [[$VOLUME -eq 50 ]]); then
+        echo -e "$VOLHIGH $VOLUME%"
+    elif ([[ $VOLUME -gt 25 ]] || [[$VOLUME -eq 25 ]]) ; then
+        echo -e "$VOLMEDIUM $VOLUME%"
+    elif([[ $VOLUME -gt 0 ]] || [[ $VOLUME -eq 0 ]]); then
+        echo -e "$VOLOFF $VOLUME%"
+    fi
+fi

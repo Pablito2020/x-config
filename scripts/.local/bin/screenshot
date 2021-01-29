@@ -1,0 +1,4 @@
+#!/bin/sh
+# Script that uses maim to take a screenshot
+output=~/pictures/screenshots/screenshot_$(date +%s).png
+maim "$output" && notify-send "💻 Screenshot taken"

@@ -1,0 +1,10 @@
+#!/bin/sh
+# script for changing the keyboard layout
+
+us_layout="us"
+es_layout="es"
+current_layout=$(setxkbmap -query | grep layout)
+
+[ $us_layout == "${current_layout##* }" ] && setxkbmap es && notify-send "🇪🇸 Keyboard changed to ES"
+[ $es_layout == "${current_layout##* }" ] && setxkbmap us && notify-send "🇺🇸 Keyboard changed to US"
+

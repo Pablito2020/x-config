@@ -1,0 +1,6 @@
+#! /bin/bash
+
+ICON=""
+DATE=$(date +"%a, %d %b" | tr '[:upper:]' '[:lower:]')
+
+echo -e "$ICON $DATE"

@@ -1,0 +1,7 @@
+#! /bin/bash
+
+ICON=""
+VERSION=$(uname -r)
+
+echo "$ICON $VERSION"
+
