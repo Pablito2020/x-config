@@ -2,9 +2,11 @@
 # script for changing the keyboard layout
 
 us_layout="us"
+us_layout_colemak="us(colemak)"
 es_layout="es"
 current_layout=$(setxkbmap -query | grep layout)
 
-[ $us_layout == "${current_layout##* }" ] && setxkbmap es && notify-send "🇪🇸 Keyboard changed to ES"
-[ $es_layout == "${current_layout##* }" ] && setxkbmap us && notify-send "🇺🇸 Keyboard changed to US"
+[ $us_layout == "${current_layout##* }" ] && setxkbmap es && notify-send "Teclado cambiado a Español (qwerty)"
+[ $es_layout == "${current_layout##* }" ] && setxkbmap -layout "us(colemak)" -option "grp:menu_toggle"  && notify-send "Keyboard changed to English (colemak)"
+[ $us_layout_colemak == "${current_layout##* }" ] && setxkbmap us && notify-send "Keyboard changed to English (qwerty)"
 
