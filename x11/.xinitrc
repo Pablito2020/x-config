@@ -1,3 +1,4 @@
+#!/bin/sh
 # Start the services when you run 'startx'
 
 #
@@ -8,7 +9,7 @@ xrandr --output DP-2 --mode 2560x1080 --rate 74.99
 #
 # wallpaper
 #
-feh --bg-scale ~/pictures/wallpapers/14.jpg
+feh --bg-center ~/pictures/wallpapers/nasa.png
 
 #
 # network manager applet
@@ -39,6 +40,10 @@ xrdb ~/.config/.Xresources &
 # remap caps to escape
 #
 setxkbmap -option caps:escape
+
+
+# start birdtray for thunderbird
+birdtray &
 
 #
 # statusbar for dwm, dwmblocks
